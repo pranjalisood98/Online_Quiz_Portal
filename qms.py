@@ -29,6 +29,7 @@ class qms:
 
   def create_new_paper(self, title, time, num):
     val = (title, time, num)
+    self.title = title
     cursor = self.server.cursor()
     cursor.execute("Use admin;")
     sql = "insert into question_papers (Title, Time, NumberOfQuestions) \
@@ -41,7 +42,6 @@ class qms:
     (Description varchar(255), A varchar(255), B varchar(255), C varchar(255),\
     D varchar(255), Answer varchar(255));"
     cursor.execute(sql)
-    print("Niggas ")
 
   def get_latest_qid(self):
     cursor = self.server.cursor()
