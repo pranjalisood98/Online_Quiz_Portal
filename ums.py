@@ -45,14 +45,14 @@ class ums:
       return False
     
     
-import mysql.connector
-
-server = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  passwd="1234"
-)
-
-ums_obj = ums(server)
-check = ums_obj.register("naman","1234", admin=False)
-print(check)
+#import mysql.connector
+#
+#server = mysql.connector.connect(
+#  host="localhost",
+#  user="root",
+#  passwd="1234"
+#)
+#
+#ums_obj = ums(server)
+#check = ums_obj.register("naman","1234", admin=False)
+#print(check)
