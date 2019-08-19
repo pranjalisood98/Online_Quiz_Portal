@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Main Page</title>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+  </head>
+  <body>
+
+    <form method="POST" action="/quiz">
+
+      <div><label class="inline"><strong><span>Enter the Name of the Quiz</span></strong></label></div>
+      <div>
+        <input type="text" name="quiz_name">
+      </div>
+
+    <div class="align">
+      <div><label class="inline"><strong><span>Enter the time limit</span></strong></label></div>
+      <div>
+        <input type="text" name="time_limit" required>
+      </div>
+    </div>
+    <div class="align">
+      <div><label class="inline"><strong><span>Enter the Number of Questions</span></strong></label></div>
+      <div>
+        <input type="text" name="number">
+      </div>
+    </div>
+      <div class="align">
+        <input type="submit" value="submit" name="submit" class="btn btn-danger">
+      </div>
+
+    </form>
+  </body>
+</html>

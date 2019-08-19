@@ -2,6 +2,15 @@
 <html>
 <head>
 	<title>Login</title>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul class=flashes>
+			{% for message in messages %}
+				<li>{{ message }}</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
 	<!--<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='loginpage.css')}}">-->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
@@ -11,7 +20,7 @@
 	<div class="left"></div>
 	<div class="background">
 		<div class="scale">
-		<form method="POST" action="/">
+		<form method="POST" action="/login">
 
 		<div class="h1 align adjust"><span>LOGIN</span></div>
 			<div class="align">
@@ -30,10 +39,10 @@
 				<div class="align">
 					<input type="submit" value="Login" name="Submit" class="btn btn-danger">
 				</div>
-				<div class="align">
-					<input type="button" name="Register" value="Register">
-				</div>
 		</form>
+		<div>
+			<a href="http://127.0.0.1:5000/register">Register</a>
+    </div>
 	</div>
 	</div>
 </div>

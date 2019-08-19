@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul class=flashes>
+			{% for message in messages %}
+				<li>{{ message }}</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+	<!--<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='loginpage.css')}}">-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="centering">
+	<div class="left"></div>
+	<div class="background">
+		<div class="scale">
+		<form method="POST" action="/register">
+
+		<div class="h1 align adjust"><span>Register</span></div>
+			<div class="align">
+			  <div><label class="inline"><strong><span>Username</span></strong></label></div>
+				<div>
+					<input type="text" name="username" >
+				</div>
+			</div>
+
+			<div class="align">
+				<div><label class="inline"><strong><span>Password</span></strong></label></div>
+				<div>
+					<input type="password" name="password" required>
+				</div>
+			</div>
+				<div class="align">
+					<input type="submit" value="Register" name="Submit" class="btn btn-danger">
+				</div>
+		</form>
+		<div>
+			<a href="http://127.0.0.1:5000/login">Login</a>
+    </div>
+	</div>
+	</div>
+</div>
+
+</body>
+</html>
