@@ -12,9 +12,9 @@ class qms:
     cursor.execute("Use admin;")
     sql = "create table if not exists question_papers (Qid int NOT NULL \
     AUTO_INCREMENT, Title varchar(255) NOT NULL, Time int, NumberOfQuestions int, PRIMARY KEY (Qid));"
-    
+
     cursor.execute(sql)
-    
+
   def insert_question(self, text, opt_list, answer):
     if len(opt_list) != 4:
       return False
@@ -26,7 +26,7 @@ class qms:
     cursor = self.server.cursor()
     cursor.execute(sql)
     self.server.commit()
-  
+
   def create_new_paper(self, title, time, num):
     val = (title, time, num)
     cursor = self.server.cursor()
@@ -36,11 +36,13 @@ class qms:
     cursor.execute(sql, val)
     self.server.commit()
     self.qid = self.get_latest_qid()
+    self.num = num
     sql = "create table if not exists qp" + str(self.qid) + " \
     (Description varchar(255), A varchar(255), B varchar(255), C varchar(255),\
     D varchar(255), Answer varchar(255));"
     cursor.execute(sql)
-    
+    print("Niggas ")
+
   def get_latest_qid(self):
     cursor = self.server.cursor()
     cursor.execute("Use admin;")
@@ -49,7 +51,7 @@ class qms:
     if len(rec) == 0:
       return False
     return int(rec[0][0])
-  
+
 #import mysql.connector
 #
 #server = mysql.connector.connect(
